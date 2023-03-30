@@ -2,38 +2,31 @@
 
 int main(){
 	
-	int x;
-	int aux = 0;
+	int tam;
 	
 	printf("Digite o tamanho da lista: ");
-	scanf("%d", &x);
+	scanf("%d", &tam);
 	
-	int numeros[x];
+	int lista[tam];
 	
-	// receber dados da lista //
-	
-	for(int j = 0 ; j < x; j++){
-		printf("Digite o %d numero: ", j+1);
-		scanf("%d", &numeros[j]);
+	for(int i = 0; i < tam; i++){
+		printf("Digite o %d numero da lista: ", i+1);
+		scanf("%d", &lista[i]);
 	}
 	
-	// ordenar lista//
+	char aux;
 	
-	for(int y = 0; y < x; y++){
-		for(int i = 0; i > x; i++ ){
-			if(numeros[i] > numeros[i + 1]){
-				aux = numeros[i + 1];
-				numeros[i] = numeros[i + 1];
-		        numeros[i + 1] = aux;
+	for(int i = 0; i < tam; i++){
+		for(int y = 0; y < tam; y++){
+			if(lista[y] > lista[y + 1]){
+				aux = lista [y + 1];
+				lista [y + 1] = lista[y];
+				lista[y] = aux;
 			}
 		}
 	}
 	
-			//printar lista ordenada//
-		
-		for(int u=0; u < 5; u++){
-		printf("%d", numeros[u]);
-	    
+	for(int i = 0; i < tam; i++){
+		printf("O %d numero da lista e: %d\n", i+1, lista[i]);
 	}
-	return 0;
 }
