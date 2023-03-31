@@ -14,14 +14,14 @@ int main(){
 		scanf("%d", &lista[i]);
 	}
 	
-	for(int i = 0; i < tam; i++){
+	for(int i = 1; i < tam; i++){
 		int p = lista[i];
 		int c = i - 1;
 		
-		while(i >= 0 && lista[i] > lista[i + 1]){
-			lista[i] = lista[i + 1];
+		while(i >= 0 && lista[c] > p){
+			lista[c + 1] = lista[c];
 			c -= 1;
-			lista[i + 1] = p;
+			lista[c + 1] = p;
 		}
 	}
 	
