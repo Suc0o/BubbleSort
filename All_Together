@@ -1,0 +1,90 @@
+#include <stdio.h>
+
+int bubble(int t, int list[]){
+	
+	char aux;
+	
+	for(int i = 0; i < t; i++){
+		for(int y = 0; y < t; y++){
+			if(list[y] > list[y + 1]){
+				aux = list[y + 1];
+				list [y + 1] = list[y];
+				list[y] = aux;
+			}
+		}
+	}
+	
+	return list[t];
+}
+
+insertion(int t, int list[]){
+	
+	for(int i = 1; i < t; i++){
+		int p = list[i];
+		int c = i - 1;
+		
+		while(i >= 0 && list[c] > p){
+			list[c + 1] = list[c];
+			c -= 1;
+			list[c + 1] = p;
+		}
+	}
+	
+	return list[t];
+}
+
+selection(int t, int list[]){
+	
+	int aux;
+	
+	for(int i = 0; i < t; i++){ 
+		for(int y = i+1; y < t; y++){
+			if(list[i] > list[y]){
+				aux = list[y];
+				list[y] = list[i];
+				list[i] = aux;
+			}
+		}
+	}
+	
+	return list[t];
+	
+}
+
+int main(){
+	
+	int tam;
+	
+	printf("Digite o tamanho da lista: ");
+	scanf("%d", &tam);
+	
+		int lista[tam];
+		 int lista_aux[tam];
+	
+	for(int i = 0; i < tam; i++){
+		printf("Digite o %d numero da lista: ", i+1);
+		scanf("%d", &lista[i]);
+		
+		lista_aux[i] = lista[i];
+	}
+	
+
+	
+	bubble(tam, lista);
+	insertion(tam, lista);
+	selection(tam, lista);
+	
+	printf("\nLista original\n");
+	
+		for(int i = 0; i < tam; i++){
+		printf("%d ",lista_aux[i]);
+	}
+	
+	printf("\nLista ordenada\n");
+	
+	for(int i = 0; i < tam; i++){
+		printf("%d ",lista[i]);
+	}
+	
+	return 0;
+}
