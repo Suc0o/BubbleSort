@@ -16,7 +16,7 @@ int main() {
         int p = lista[i];
         while (c >= 0 && lista[c] > p) {
             lista[c + 1] = lista[c];
-            c--;
+            c -= 1;
         }
         lista[c + 1] = p;
     }
